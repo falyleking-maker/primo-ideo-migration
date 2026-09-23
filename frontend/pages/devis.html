@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Devis Express | Primo-Idéo</title>
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+    </head>
+    <body class="">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Devis Express</h1>
+                <p>Demandez un produit ou une information complémentaire.</p>
+            </div>
+        </section>
+        <main class="content">
+            <div class="container">
+                <form class="form-card form-grid" onsubmit="event.preventDefault();alert('Demande préparée. Utilisez les coordonnées publiques de Primo-Idéo pour l’envoyer.');">
+                    <input placeholder="Nom">
+                    <input type="email" placeholder="Email">
+                    <input placeholder="Téléphone">
+                    <input placeholder="Produit recherché">
+                    <textarea placeholder="Votre demande"></textarea>
+                    <button class="btn btn-primary">Préparer la demande</button>
+                    <p>Contact : <span data-email></span> • <span data-phone></span></p>
+                </form>
+            </div>
+        </main>
+        <script src="../data/catalog.js"></script>
+        <script src="../assets/js/app.js"></script>
+    </body>
+    
+</html>

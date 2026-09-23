@@ -1,0 +1,14 @@
+{
+  "company": "Primo Distribution",
+  "contact": {
+    "phone": "03 65 65 66 90",
+    "email": "contact@primo-ideo.com",
+    "hours": {
+      "weekdays": "Lundi–vendredi : 9h30–18h30",
+      "saturday": "Samedi : 10h–17h30"
+    }
+  },
+  "address": "55 route de Senlis - 60330 Lagny le Sec",
+  "pickup_hours": "Lundi–vendredi : 9h–19h ; samedi : 10h–17h",
+  "source": "https://www.primo-ideo.com/"
+}

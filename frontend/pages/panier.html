@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mon panier | Primo-Idéo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         EN-TÊTE
+    ====================================================== -->
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Mon panier</h1>
+            <p>Retrouvez les produits que vous avez sélectionnés.</p>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+         PANIER
+    ====================================================== -->
+
+    <main class="content">
+
+        <div class="container">
+
+            <div class="cart-page">
+
+                <!-- Titre -->
+
+                <div class="section-header">
+                    <div>
+                        <h2>Votre sélection</h2>
+                        <p>
+                            Vérifiez les produits avant de continuer
+                            votre commande.
+                        </p>
+                    </div>
+
+                    <a
+                        href="produits.html"
+                        class="btn btn-light-outline"
+                    >
+                        ← Continuer mes achats
+                    </a>
+                </div>
+
+
+                <!-- Contenu généré par app.js -->
+
+                <div id="cartItems" class="cart-list"></div>
+
+
+                <!-- Zone vide -->
+
+                <div
+                    id="cartEmpty"
+                    class="empty-state"
+                    style="display:none;"
+                >
+                    <div
+                        style="
+                            font-size:45px;
+                            margin-bottom:10px;
+                        "
+                    >
+                        🛒
+                    </div>
+
+                    <strong>
+                        Votre panier est vide
+                    </strong>
+
+                    <p>
+                        Vous n'avez encore ajouté aucun produit.
+                    </p>
+
+                    <a
+                        href="produits.html"
+                        class="btn btn-primary"
+                    >
+                        Découvrir les produits
+                    </a>
+                </div>
+
+
+                <!-- =================================================
+                     RÉCAPITULATIF
+                ================================================== -->
+
+                <div
+                    id="cartSummary"
+                    class="cart-summary"
+                    style="display:none;"
+                >
+
+                    <div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            gap:15px;
+                            flex-wrap:wrap;
+                        "
+                    >
+
+                        <div>
+                            <span>
+                                Total de votre panier
+                            </span>
+
+                            <div
+                                id="cartTotal"
+                                style="
+                                    font-size:28px;
+                                    font-weight:800;
+                                    color:#f58220;
+                                "
+                            >
+                                0,00 €
+                            </div>
+                        </div>
+
+
+                        <div
+                            style="
+                                display:flex;
+                                gap:10px;
+                                flex-wrap:wrap;
+                            "
+                        >
+
+                            <button
+                                type="button"
+                                id="clearCart"
+                                class="btn btn-light"
+                            >
+                                Vider le panier
+                            </button>
+
+                            <a
+                                href="paiement.html"
+                                id="checkoutBtn"
+                                class="btn btn-primary"
+                            >
+                                Valider la commande →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="../data/catalog.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+    <script src="../assets/js/account-status.js"></script>
+
+</body>
+</html>

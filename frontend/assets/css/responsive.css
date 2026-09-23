@@ -1,0 +1,562 @@
+/* =========================================================
+   PRIMO-IDÉO — RESPONSIVE GLOBAL
+   Compatible avec toutes les pages
+========================================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+/* Empêche les éléments de dépasser l'écran */
+
+.container {
+    width: min(1200px, calc(100% - 30px));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header,
+.topbar,
+.main-nav,
+.header-main,
+.header-actions,
+.search-form {
+    max-width: 100%;
+}
+
+.header-main {
+    min-width: 0;
+}
+
+.search-form {
+    min-width: 0;
+}
+
+.search-form input {
+    min-width: 0;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-nav {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.main-nav .container {
+    width: max-content;
+    min-width: 100%;
+}
+
+.main-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+img {
+    max-width: 100%;
+}
+
+/* =========================================================
+   GRILLES
+========================================================= */
+
+.products-grid,
+.categories-grid,
+.grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.product-card,
+.category-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* =========================================================
+   PAGE PRODUITS
+========================================================= */
+
+.filters {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.filters input,
+.filters select {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* =========================================================
+   DÉTAIL PRODUIT
+========================================================= */
+
+.detail-card,
+.detail-info,
+.detail-image {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.detail-image img {
+    max-width: 100%;
+}
+
+/* =========================================================
+   FORMULAIRES
+========================================================= */
+
+.form-card,
+.account-card,
+.payment-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* =========================================================
+   TABLEAUX
+========================================================= */
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* =========================================================
+   PANIER
+========================================================= */
+
+.cart-list,
+.cart-item,
+.cart-product,
+.cart-product-info {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.cart-item {
+    width: 100%;
+}
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .header-main {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .categories-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================================
+   TABLETTE PETITE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: calc(100% - 24px);
+        max-width: 100%;
+    }
+
+    .header-main {
+        grid-template-columns: 1fr;
+    }
+
+    .header-actions {
+        justify-content: center;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .categories-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-card {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filters {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+    .filters input {
+        grid-column: 1 / -1;
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: calc(100% - 20px);
+        max-width: 100%;
+    }
+
+    /* Header */
+
+    .header-main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .logo {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .search-form {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-form input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .search-form button {
+        flex: 0 0 auto;
+    }
+
+    .header-actions {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Navigation */
+
+    .main-nav {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .main-nav .container {
+        width: max-content;
+        min-width: 100%;
+    }
+
+    .main-nav a {
+        flex: 0 0 auto;
+    }
+
+    /* Hero */
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        overflow-wrap: anywhere;
+    }
+
+    .hero p {
+        overflow-wrap: anywhere;
+    }
+
+    /* Pages */
+
+    .page-hero,
+    .section,
+    .content,
+    .page-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Produits */
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product-card .product-image {
+        width: 100%;
+        height: 240px;
+    }
+
+    .product-card .product-body {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .product-card .product-body h3 {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .product-actions {
+        width: 100%;
+    }
+
+    .product-actions .btn {
+        width: 100%;
+    }
+
+    /* Catégories */
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .category-card {
+        width: 100%;
+    }
+
+    /* Filtres */
+
+    .filters {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .filters input,
+    .filters select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filters input {
+        grid-column: auto;
+    }
+
+    /* Produit détail */
+
+    .detail-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .detail-image {
+        width: 100%;
+        min-height: 280px;
+    }
+
+    .detail-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .detail-info h1 {
+        overflow-wrap: anywhere;
+    }
+
+    /* Formulaires */
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Panier */
+
+    .cart-item {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 70px minmax(0, 1fr);
+    }
+
+    .cart-product-info {
+        min-width: 0;
+    }
+
+    .cart-price,
+    .cart-quantity,
+    .cart-subtotal,
+    .cart-remove {
+        grid-column: 2;
+    }
+
+    /* Footer */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   TRÈS PETIT MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .container {
+        width: calc(100% - 16px);
+    }
+
+    .search-form button {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .product-card .product-image {
+        height: 210px;
+    }
+
+}
+/* =========================================================
+   PRIMO-IDÉO — CARROUSEL PRODUITS MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* La grille devient une ligne horizontale */
+    .products-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        gap: 14px;
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 5px 3px 15px;
+
+        scroll-snap-type: x mandatory;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: thin;
+    }
+
+    /* Chaque produit devient une carte du carrousel */
+    .products-grid .product-card {
+        flex: 0 0 82%;
+
+        width: 82%;
+        max-width: 82%;
+        min-width: 82%;
+
+        scroll-snap-align: start;
+    }
+
+    /* Image */
+    .products-grid .product-image {
+        height: 230px;
+    }
+
+    /* Texte */
+    .products-grid .product-body {
+        padding: 14px;
+    }
+
+    .products-grid .product-body h3 {
+        min-height: auto;
+    }
+
+    /* Boutons */
+    .products-grid .product-actions {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .products-grid .product-actions .btn {
+        width: auto;
+        flex: 1;
+    }
+
+    /* Barre de défilement */
+    .products-grid::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .products-grid::-webkit-scrollbar-thumb {
+        background: #aaa;
+        border-radius: 10px;
+    }
+
+    .products-grid::-webkit-scrollbar-track {
+        background: #eee;
+    }
+}

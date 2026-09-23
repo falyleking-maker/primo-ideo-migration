@@ -1,0 +1,555 @@
+
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Paiement | Primo-Idéo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Paiement</h1>
+            <p>Finalisez votre commande.</p>
+        </div>
+    </section>
+
+    <main class="content">
+
+        <div class="container">
+
+            <div class="checkout-layout">
+
+                <!-- RÉCAPITULATIF -->
+                <section class="checkout-summary">
+
+                    <h2>Votre commande</h2>
+
+                    <div id="paymentCart">
+                        Chargement de la commande...
+                    </div>
+
+                    <div class="checkout-total">
+
+                        <strong>Total :</strong>
+
+                        <strong id="paymentTotal">
+                            0,00 €
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FORMULAIRE -->
+                <section class="checkout-form">
+
+                    <h2>Informations de commande</h2>
+
+                    <form id="paymentForm">
+
+                        <div class="form-group">
+
+                            <label for="fullname">
+                                Nom complet
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullname"
+                                name="fullname"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Adresse e-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Téléphone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="address">
+                                Adresse de livraison
+                            </label>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                rows="4"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <h2>Moyen de paiement</h2>
+
+                        <div class="form-group">
+
+                            <label for="paymentMethod">
+                                Choisissez un moyen de paiement
+                            </label>
+
+                            <select
+                                id="paymentMethod"
+                                name="paymentMethod"
+                                required
+                            >
+
+                                <option value="">
+                                    Sélectionner
+                                </option>
+
+                                <option value="card">
+                                    Carte bancaire
+                                </option>
+
+                                <option value="mobile">
+                                    Paiement mobile
+                                </option>
+
+                                <option value="cash">
+                                    Paiement à la livraison
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div
+                            id="cardFields"
+                            style="display:none;"
+                        >
+
+                            <div class="form-group">
+
+                                <label for="cardNumber">
+                                    Numéro de carte
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cardNumber"
+                                    name="cardNumber"
+                                    inputmode="numeric"
+                                    autocomplete="off"
+                                    maxlength="19"
+                                    placeholder="XXXX XXXX XXXX XXXX"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="cardName">
+                                    Nom sur la carte
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cardName"
+                                    name="cardName"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="cardExpiry">
+                                    Date d'expiration
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cardExpiry"
+                                    name="cardExpiry"
+                                    placeholder="MM/AA"
+                                    maxlength="5"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="cardCvv">
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="cardCvv"
+                                    name="cardCvv"
+                                    inputmode="numeric"
+                                    maxlength="4"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Confirmer la commande
+                        </button>
+
+                    </form>
+
+                    <div
+                        id="paymentMessage"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+
+            const cartContainer =
+                document.getElementById("paymentCart");
+
+            const totalElement =
+                document.getElementById("paymentTotal");
+
+            const paymentForm =
+                document.getElementById("paymentForm");
+
+            const paymentMethod =
+                document.getElementById("paymentMethod");
+
+            const cardFields =
+                document.getElementById("cardFields");
+
+            const message =
+                document.getElementById("paymentMessage");
+
+
+            // ------------------------------------------
+            // RÉCUPÉRATION DU PANIER
+            // ------------------------------------------
+
+            function getCart() {
+
+                try {
+
+                    const cart =
+                        JSON.parse(
+                            localStorage.getItem("cart") || "[]"
+                        );
+
+                    return Array.isArray(cart)
+                        ? cart
+                        : [];
+
+                } catch (error) {
+
+                    return [];
+
+                }
+
+            }
+
+
+            // ------------------------------------------
+            // PRIX
+            // ------------------------------------------
+
+            function getPrice(value) {
+
+                const price =
+                    parseFloat(
+                        String(value || "")
+                            .replace(/\s/g, "")
+                            .replace(",", ".")
+                            .replace(/[^\d.-]/g, "")
+                    );
+
+                return Number.isFinite(price)
+                    ? price
+                    : 0;
+
+            }
+
+
+            function formatPrice(value) {
+
+                return value.toLocaleString(
+                    "fr-FR",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                ) + " €";
+
+            }
+
+
+            // ------------------------------------------
+            // AFFICHAGE DU PANIER
+            // ------------------------------------------
+
+            function displayCart() {
+
+                const cart = getCart();
+
+                if (cart.length === 0) {
+
+                    cartContainer.innerHTML = `
+                        <p>
+                            Votre panier est vide.
+                        </p>
+
+                        <p>
+                            <a href="produits.html">
+                                Retour aux produits
+                            </a>
+                        </p>
+                    `;
+
+                    totalElement.textContent =
+                        "0,00 €";
+
+                    if (paymentForm) {
+                        paymentForm.style.display = "none";
+                    }
+
+                    return;
+
+                }
+
+
+                let total = 0;
+
+
+                cartContainer.innerHTML =
+                    cart.map(function (item) {
+
+                        const quantity =
+                            Number(item.quantity || 1);
+
+                        const price =
+                            getPrice(item.price);
+
+                        const subtotal =
+                            price * quantity;
+
+                        total += subtotal;
+
+
+                        return `
+                            <div class="checkout-item">
+
+                                <strong>
+                                    ${item.name || "Produit"}
+                                </strong>
+
+                                <p>
+                                    Quantité :
+                                    ${quantity}
+                                </p>
+
+                                <p>
+                                    ${formatPrice(subtotal)}
+                                </p>
+
+                            </div>
+                        `;
+
+                    }).join("");
+
+
+                totalElement.textContent =
+                    formatPrice(total);
+
+            }
+
+
+            // ------------------------------------------
+            // MOYEN DE PAIEMENT
+            // ------------------------------------------
+
+            paymentMethod.addEventListener(
+                "change",
+                function () {
+
+                    if (
+                        paymentMethod.value === "card"
+                    ) {
+
+                        cardFields.style.display =
+                            "block";
+
+                    } else {
+
+                        cardFields.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+
+            // ------------------------------------------
+            // VALIDATION
+            // ------------------------------------------
+
+            paymentForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const cart = getCart();
+
+
+                    if (cart.length === 0) {
+
+                        message.textContent =
+                            "Votre panier est vide.";
+
+                        return;
+
+                    }
+
+
+                    if (!paymentForm.checkValidity()) {
+
+                        paymentForm.reportValidity();
+
+                        return;
+
+                    }
+
+
+                    /*
+                     * FRONT-END UNIQUEMENT
+                     *
+                     * Aucun paiement réel n'est effectué.
+                     * Aucune donnée bancaire n'est envoyée
+                     * vers un serveur.
+                     */
+
+
+                    const orderNumber =
+                        "CMD-" +
+                        Date.now();
+
+
+                    message.innerHTML = `
+                        <p>
+                            <strong>
+                                Commande enregistrée.
+                            </strong>
+                        </p>
+
+                        <p>
+                            Numéro de commande :
+                            <strong>
+                                ${orderNumber}
+                            </strong>
+                        </p>
+
+                        <p>
+                            Ceci est une démonstration
+                            front-end. Aucun paiement réel
+                            n'a été effectué.
+                        </p>
+                    `;
+
+
+                    /*
+                     * On vide le panier après
+                     * confirmation de la commande.
+                     */
+
+                    localStorage.removeItem("cart");
+
+
+                    paymentForm.reset();
+
+                    cardFields.style.display =
+                        "none";
+
+
+                    displayCart();
+
+                }
+            );
+
+
+            // ------------------------------------------
+            // INITIALISATION
+            // ------------------------------------------
+
+            displayCart();
+
+
+        })();
+
+    </script>
+
+</body>
+
+</html>
+

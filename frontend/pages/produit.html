@@ -1,0 +1,443 @@
+
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Produit | Primo-Idéo</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Détail du produit</h1>
+            <p>Informations du produit provenant du catalogue Primo-Idéo.</p>
+        </div>
+    </section>
+
+    <main class="content">
+
+        <div class="container">
+
+            <div id="productDetail">
+
+                <p>Chargement du produit...</p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../data/catalog.js"></script>
+
+    <script>
+        (function () {
+
+            "use strict";
+
+            const data = window.PRIMO_DATA || {};
+            const products = Array.isArray(data.products)
+                ? data.products
+                : [];
+
+            const container =
+                document.getElementById("productDetail");
+
+            function escapeHTML(value) {
+                return String(value ?? "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function formatPrice(value) {
+
+                if (
+                    value === null ||
+                    value === undefined ||
+                    value === ""
+                ) {
+                    return "";
+                }
+
+                const price = parseFloat(
+                    String(value)
+                        .replace(/\s/g, "")
+                        .replace(",", ".")
+                        .replace(/[^\d.-]/g, "")
+                );
+
+                if (!Number.isFinite(price)) {
+                    return "";
+                }
+
+                return price.toLocaleString("fr-FR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }) + " €";
+            }
+
+            function getProduct() {
+
+                const params =
+                    new URLSearchParams(window.location.search);
+
+                const id = params.get("id");
+                const reference = params.get("reference");
+
+                if (id) {
+                    const productById =
+                        products.find(function (product) {
+                            return String(product.id) === String(id);
+                        });
+
+                    if (productById) {
+                        return productById;
+                    }
+                }
+
+                if (reference) {
+                    const productByReference =
+                        products.find(function (product) {
+                            return String(product.reference) === String(reference);
+                        });
+
+                    if (productByReference) {
+                        return productByReference;
+                    }
+                }
+
+                return null;
+            }
+
+            function addToCart(product) {
+
+                let cart = [];
+
+                try {
+                    cart =
+                        JSON.parse(
+                            localStorage.getItem("cart") || "[]"
+                        );
+
+                    if (!Array.isArray(cart)) {
+                        cart = [];
+                    }
+
+                } catch (error) {
+                    cart = [];
+                }
+
+                const existing =
+                    cart.find(function (item) {
+                        return String(item.id) === String(product.id);
+                    });
+
+                if (existing) {
+
+                    existing.quantity =
+                        Number(existing.quantity || 1) + 1;
+
+                } else {
+
+                    cart.push({
+                        id: product.id,
+                        reference: product.reference || "",
+                        name: product.name || "",
+                        brand: product.brand || "",
+                        price: product.price || "",
+                        image: product.image || product.image_url || "",
+                        url: product.url || "",
+                        quantity: 1
+                    });
+
+                }
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+                alert("Produit ajouté au panier.");
+
+            }
+
+            function displayProduct(product) {
+
+                if (!product) {
+
+                    container.innerHTML = `
+                        <div class="empty-message">
+                            <h2>Produit introuvable</h2>
+
+                            <p>
+                                Aucun produit correspondant
+                                n'a été trouvé dans les données
+                                du catalogue.
+                            </p>
+
+                            <p>
+                                <a href="produits.html">
+                                    Retour aux produits
+                                </a>
+                            </p>
+                        </div>
+                    `;
+
+                    return;
+                }
+
+                const name =
+                    product.name || "Produit";
+
+                const image =
+                    product.image ||
+                    product.image_url ||
+                    (
+                        Array.isArray(product.images)
+                            ? product.images[0]
+                            : ""
+                    );
+
+                const price =
+                    formatPrice(product.price);
+
+                const images =
+                    Array.isArray(product.images)
+                        ? product.images
+                        : [];
+
+                let gallery = "";
+
+                if (images.length > 0) {
+
+                    gallery = `
+                        <div class="product-gallery">
+                            ${images
+                                .map(function (img) {
+
+                                    return `
+                                        <img
+                                            src="${escapeHTML(img)}"
+                                            alt="${escapeHTML(name)}"
+                                            loading="lazy"
+                                            style="max-width:100%;"
+                                        >
+                                    `;
+
+                                })
+                                .join("")
+                            }
+                        </div>
+                    `;
+
+                }
+
+                container.innerHTML = `
+
+                    <article class="product-detail">
+
+                        <div class="product-detail-image">
+
+                            ${
+                                image
+                                ? `
+                                    <img
+                                        src="${escapeHTML(image)}"
+                                        alt="${escapeHTML(name)}"
+                                        style="max-width:100%;"
+                                    >
+                                `
+                                : `
+                                    <p>
+                                        Image indisponible
+                                    </p>
+                                `
+                            }
+
+                        </div>
+
+                        <div class="product-detail-content">
+
+                            <h2>
+                                ${escapeHTML(name)}
+                            </h2>
+
+                            ${
+                                product.brand
+                                ? `
+                                    <p>
+                                        <strong>Marque :</strong>
+                                        ${escapeHTML(product.brand)}
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                            ${
+                                product.reference
+                                ? `
+                                    <p>
+                                        <strong>Référence :</strong>
+                                        ${escapeHTML(product.reference)}
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                            ${
+                                product.category
+                                ? `
+                                    <p>
+                                        <strong>Catégorie :</strong>
+                                        ${escapeHTML(product.category)}
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                            ${
+                                product.subcategory
+                                ? `
+                                    <p>
+                                        <strong>Sous-catégorie :</strong>
+                                        ${escapeHTML(product.subcategory)}
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                            ${
+                                price
+                                ? `
+                                    <p class="product-price">
+                                        ${escapeHTML(price)}
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                            ${
+                                product.description
+                                ? `
+                                    <div class="product-description">
+
+                                        <h3>Description</h3>
+
+                                        <p>
+                                            ${escapeHTML(
+                                                product.description
+                                            )}
+                                        </p>
+
+                                    </div>
+                                `
+                                : ""
+                            }
+
+                            <div class="product-actions">
+
+                                <button
+                                    type="button"
+                                    id="addToCart"
+                                    class="btn btn-primary"
+                                >
+                                    Ajouter au panier
+                                </button>
+
+                                <a
+                                    href="panier.html"
+                                    class="btn btn-light"
+                                >
+                                    Voir le panier
+                                </a>
+
+                                <a
+                                    href="produits.html"
+                                    class="btn btn-light-outline"
+                                >
+                                    Retour aux produits
+                                </a>
+
+                            </div>
+
+                            ${
+                                product.url
+                                ? `
+                                    <p>
+                                        <a
+                                            href="${escapeHTML(product.url)}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Voir la fiche originale
+                                        </a>
+                                    </p>
+                                `
+                                : ""
+                            }
+
+                        </div>
+
+                    </article>
+
+                    ${
+                        gallery
+                        ? `
+                            <section class="section">
+
+                                <div class="section-header">
+
+                                    <div>
+                                        <h2>
+                                            Images du produit
+                                        </h2>
+                                    </div>
+
+                                </div>
+
+                                ${gallery}
+
+                            </section>
+                        `
+                        : ""
+                    }
+
+                `;
+
+                const addButton =
+                    document.getElementById("addToCart");
+
+                if (addButton) {
+
+                    addButton.addEventListener(
+                        "click",
+                        function () {
+                            addToCart(product);
+                        }
+                    );
+
+                }
+
+            }
+
+            const product = getProduct();
+
+            displayProduct(product);
+
+        })();
+    </script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,816 @@
+/* =========================================================
+   PRIMO-IDEO - ESPACE COMPTE
+   Connexion / Inscription
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #ffffff;
+    color: #333333;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    width: 100%;
+    background: #ffffff;
+}
+
+
+/* Barre supérieure */
+
+.topbar {
+    border-bottom: 1px solid #dddddd;
+    background: #ffffff;
+}
+
+.topbar-inner {
+    width: min(1180px, 94%);
+    margin: auto;
+
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* Logo */
+
+.brand {
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+
+    line-height: 0.9;
+}
+
+.brand-main {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    color: #222222;
+}
+
+.brand-sub {
+    margin-top: 5px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #777777;
+}
+
+
+/* Liens */
+
+.top-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.top-links a,
+.account-nav a {
+    color: #444444;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.top-links a:hover,
+.account-nav a:hover {
+    color: #000000;
+}
+
+
+/* Navigation compte */
+
+.account-nav {
+    background: #f4f4f4;
+    border-bottom: 1px solid #dddddd;
+}
+
+.account-nav-inner {
+    width: min(1180px, 94%);
+    margin: auto;
+
+    min-height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.account-nav a {
+    display: flex;
+    align-items: center;
+
+    min-height: 45px;
+
+    border-bottom: 2px solid transparent;
+}
+
+.account-nav a.active {
+    color: #111111;
+    font-weight: 700;
+
+    border-bottom-color: #555555;
+}
+
+
+/* =========================================================
+   CONTENU
+   ========================================================= */
+
+.account-container {
+    width: min(1000px, 94%);
+    margin: 0 auto;
+
+    padding: 35px 0 60px;
+}
+
+
+/* Titre */
+
+.page-title {
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 15px;
+}
+
+.page-title h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 500;
+
+    color: #333333;
+}
+
+.page-title p {
+    margin: 6px 0 0;
+
+    color: #777777;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.account-message {
+    display: none;
+
+    margin-bottom: 20px;
+    padding: 12px 15px;
+
+    border: 1px solid #cccccc;
+    background: #f5f5f5;
+
+    font-size: 14px;
+}
+
+.account-message.show {
+    display: block;
+}
+
+.account-message.success {
+    background: #f1f7f1;
+    border-color: #a9c7a9;
+    color: #315b31;
+}
+
+.account-message.error {
+    background: #faf1f1;
+    border-color: #d3aaaa;
+    color: #7a2929;
+}
+
+.account-message.info {
+    background: #f3f5f7;
+    border-color: #c6ccd2;
+    color: #414950;
+}
+
+
+/* =========================================================
+   PANNEAU
+   ========================================================= */
+
+.account-panel {
+    border: 1px solid #d7d7d7;
+    background: #ffffff;
+}
+
+
+/* Titre panneau */
+
+.account-panel-title {
+    padding: 20px 25px;
+
+    background: #f5f5f5;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.account-panel-title h2 {
+    margin: 0 0 5px;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    color: #333333;
+}
+
+.account-panel-title p {
+    margin: 0;
+
+    color: #777777;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FORMULAIRE
+   ========================================================= */
+
+.account-form {
+    padding: 25px;
+}
+
+
+.form-section {
+    padding: 0 0 25px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.form-section:last-of-type {
+    border-bottom: 0;
+}
+
+.form-section h3 {
+    margin: 0 0 18px;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #444444;
+}
+
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+
+.two-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+.three-columns {
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+}
+
+
+/* Groupe */
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #444444;
+}
+
+.form-group label span {
+    color: #b00000;
+}
+
+
+/* Champs */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border: 1px solid #c9c9c9;
+
+    background: #ffffff;
+
+    border-radius: 0;
+
+    color: #333333;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #777777;
+
+    box-shadow:
+        0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Validation */
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #a40000;
+    background: #fffafa;
+}
+
+
+/* =========================================================
+   RADIO
+   ========================================================= */
+
+.radio-group {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.radio-option input {
+    margin: 0;
+}
+
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.check-option {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    color: #444444;
+}
+
+.check-option input {
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.required-check {
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   MOT DE PASSE
+   ========================================================= */
+
+.password-info {
+    margin-top: -5px;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   LIVRAISON
+   ========================================================= */
+
+.shipping-address {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #fafafa;
+
+    border: 1px solid #dddddd;
+}
+
+.shipping-address.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   PROFESSIONNEL
+   ========================================================= */
+
+.professional-field {
+    transition: opacity 0.2s ease;
+}
+
+.professional-field.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   CONFIDENTIALITE
+   ========================================================= */
+
+.privacy-box {
+    margin: 10px 0 25px;
+
+    padding: 17px;
+
+    background: #f7f7f7;
+
+    border: 1px solid #dddddd;
+}
+
+.privacy-box p {
+    margin: 10px 0 0 25px;
+
+    font-size: 12px;
+
+    color: #777777;
+}
+
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+.form-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    align-items: center;
+}
+
+
+.account-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 10px 24px;
+
+    border: 1px solid #333333;
+
+    background: #333333;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.account-button:hover {
+    background: #111111;
+    border-color: #111111;
+}
+
+.account-button.secondary {
+    background: #ffffff;
+    color: #333333;
+
+    border-color: #999999;
+}
+
+.account-button.secondary:hover {
+    background: #eeeeee;
+    border-color: #777777;
+}
+
+
+/* =========================================================
+   CONNEXION
+   ========================================================= */
+
+.form-help {
+    margin: -5px 0 20px;
+}
+
+.form-help a {
+    color: #555555;
+
+    font-size: 13px;
+
+    text-decoration: underline;
+}
+
+.form-help a:hover {
+    color: #111111;
+}
+
+
+/* Séparateur */
+
+.account-separator {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 25px 20px;
+
+    color: #888888;
+
+    font-size: 12px;
+}
+
+.account-separator::before,
+.account-separator::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #dddddd;
+}
+
+.account-separator span {
+    flex-shrink: 0;
+}
+
+
+/* Nouveau compte */
+
+.new-account-box {
+    margin: 0 25px 25px;
+
+    padding: 20px;
+
+    border: 1px solid #dddddd;
+
+    background: #fafafa;
+}
+
+.new-account-box h2 {
+    margin: 0 0 7px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.new-account-box p {
+    margin: 0 0 15px;
+
+    color: #666666;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+    margin-top: 30px;
+
+    background: #f3f3f3;
+
+    border-top: 1px solid #d8d8d8;
+}
+
+.footer-inner {
+    width: min(1180px, 94%);
+
+    margin: auto;
+
+    padding: 30px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 40px;
+}
+
+.footer-inner h3 {
+    margin: 0 0 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #444444;
+}
+
+.footer-inner a {
+    display: block;
+
+    margin: 6px 0;
+
+    color: #666666;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.footer-inner a:hover {
+    color: #111111;
+}
+
+.copyright {
+    padding: 15px;
+
+    text-align: center;
+
+    border-top: 1px solid #dddddd;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .topbar-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 15px 0;
+    }
+
+    .top-links {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .account-nav-inner {
+        overflow-x: auto;
+    }
+
+    .two-columns,
+    .three-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .account-container {
+        padding-top: 25px;
+    }
+
+    .account-panel-title,
+    .account-form {
+        padding: 18px;
+    }
+
+    .account-separator {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .new-account-box {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .brand-main {
+        font-size: 25px;
+    }
+
+    .brand-sub {
+        font-size: 12px;
+    }
+
+    .page-title h1 {
+        font-size: 23px;
+    }
+
+    .account-panel-title h2 {
+        font-size: 18px;
+    }
+
+    .account-button {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}

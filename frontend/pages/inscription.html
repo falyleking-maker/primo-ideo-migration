@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Créer un compte | Primo-Idéo</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css"
+    >
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container">
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                Accueil
+            </a>
+
+            <a href="services.html">
+                Aide
+            </a>
+
+            <a href="mon-compte.html">
+                Mon compte
+            </a>
+
+            <a href="connexion.html">
+                Connexion
+            </a>
+
+            <a href="panier.html">
+                Panier
+            </a>
+
+            <a href="paiement.html">
+                Commander
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <h1>
+            Je crée un nouveau compte
+        </h1>
+
+        <p>
+            Mes coordonnées
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="content">
+
+<div class="container">
+
+<form id="registerForm">
+
+    <p>
+        Les champs précédés du signe *
+        sont obligatoires.
+    </p>
+
+
+    <!-- ========================= -->
+    <!-- COMPTE -->
+    <!-- ========================= -->
+
+    <section class="account-section">
+
+        <h2>
+            Mes coordonnées
+        </h2>
+
+        <div class="form-group">
+
+            <label for="email">
+                Adresse e-mail *
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="password">
+                Mot de passe *
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="6"
+                required
+            >
+
+            <small>
+                La longueur de votre mot de passe
+                doit être minimum 6 caractères.
+            </small>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="passwordConfirm">
+                Vérif. mot passe *
+            </label>
+
+            <input
+                type="password"
+                id="passwordConfirm"
+                name="passwordConfirm"
+                minlength="6"
+                required
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TYPE CLIENT -->
+    <!-- ========================= -->
+
+    <section class="account-section">
+
+        <h2>
+            Coordonnées
+        </h2>
+
+
+        <div class="form-group">
+
+            <p>
+                Je suis un :
+            </p>
+
+            <label>
+                <input
+                    type="radio"
+                    name="customerType"
+                    value="Particulier"
+                    checked
+                >
+
+                Particulier
+            </label>
+
+
+            <label>
+                <input
+                    type="radio"
+                    name="customerType"
+                    value="Professionnel"
+                >
+
+                Professionnel
+            </label>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="civility">
+                Civilité *
+            </label>
+
+            <select
+                id="civility"
+                name="civility"
+                required
+            >
+
+                <option value="">
+                    Sélectionner
+                </option>
+
+                <option value="Madame">
+                    Madame
+                </option>
+
+                <option value="Monsieur">
+                    Monsieur
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="name">
+                Nom *
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="firstname">
+                Prénom *
+            </label>
+
+            <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="company">
+                Entreprise
+            </label>
+
+            <input
+                type="text"
+                id="company"
+                name="company"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="vat">
+                N° T.V.A. intra
+            </label>
+
+            <input
+                type="text"
+                id="vat"
+                name="vat"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="rcs">
+                Numéro de RCS
+            </label>
+
+            <input
+                type="text"
+                id="rcs"
+                name="rcs"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="phone">
+                Téléphone *
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="mobile">
+                Tél. portable
+            </label>
+
+            <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="address">
+                Adresse *
+            </label>
+
+            <textarea
+                id="address"
+                name="address"
+                rows="3"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="postalCode">
+                Code postal *
+            </label>
+
+            <input
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="city">
+                Ville *
+            </label>
+
+            <input
+                type="text"
+                id="city"
+                name="city"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="region">
+                Etat/Région/Canton *
+            </label>
+
+            <input
+                type="text"
+                id="region"
+                name="region"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="country">
+                Pays *
+            </label>
+
+            <select
+                id="country"
+                name="country"
+                required
+            >
+
+                <option value="">
+                    Sélectionner
+                </option>
+
+                <option value="France">
+                    France
+                </option>
+
+                <option value="Belgique">
+                    Belgique
+                </option>
+
+                <option value="Luxembourg">
+                    Luxembourg
+                </option>
+
+                <option value="Suisse">
+                    Suisse
+                </option>
+
+                <option value="Madagascar">
+                    Madagascar
+                </option>
+
+                <option value="Autre">
+                    Autre
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- DATE DE NAISSANCE -->
+
+        <div class="form-group">
+
+            <label>
+                Date de naissance *
+            </label>
+
+            <div>
+
+                <select
+                    id="birthDay"
+                    name="birthDay"
+                    required
+                >
+
+                    <option value="">
+                        Jour
+                    </option>
+
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(
+                                `<option value="${i}">
+                                    ${i}
+                                </option>`
+                            );
+                        }
+                    </script>
+
+                </select>
+
+
+                <select
+                    id="birthMonth"
+                    name="birthMonth"
+                    required
+                >
+
+                    <option value="">
+                        Mois
+                    </option>
+
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+
+                </select>
+
+
+                <select
+                    id="birthYear"
+                    name="birthYear"
+                    required
+                >
+
+                    <option value="">
+                        Année
+                    </option>
+
+                    <script>
+
+                        const currentYear =
+                            new Date().getFullYear();
+
+                        for (
+                            let year = currentYear;
+                            year >= 1900;
+                            year--
+                        ) {
+
+                            document.write(
+                                `<option value="${year}">
+                                    ${year}
+                                </option>`
+                            );
+
+                        }
+
+                    </script>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- LIVRAISON -->
+    <!-- ========================= -->
+
+    <section class="account-section">
+
+        <h2>
+            Adresse de livraison
+        </h2>
+
+        <div class="form-group">
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="deliveryType"
+                    value="identique"
+                    checked
+                >
+
+                identique à l'adresse principale
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="deliveryType"
+                    value="differente"
+                >
+
+                différente
+
+            </label>
+
+        </div>
+
+
+        <div id="deliveryAddress">
+
+            <div class="form-group">
+
+                <label for="deliveryCivility">
+                    Civilité *
+                </label>
+
+                <select
+                    id="deliveryCivility"
+                    name="deliveryCivility"
+                >
+
+                    <option value="">
+                        Sélectionner
+                    </option>
+
+                    <option value="Madame">
+                        Madame
+                    </option>
+
+                    <option value="Monsieur">
+                        Monsieur
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryName">
+                    Nom *
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryName"
+                    name="deliveryName"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryFirstname">
+                    Prénom *
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryFirstname"
+                    name="deliveryFirstname"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryCompany">
+                    Entreprise
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryCompany"
+                    name="deliveryCompany"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryPhone">
+                    Téléphone *
+                </label>
+
+                <input
+                    type="tel"
+                    id="deliveryPhone"
+                    name="deliveryPhone"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryMobile">
+                    Tél. portable
+                </label>
+
+                <input
+                    type="tel"
+                    id="deliveryMobile"
+                    name="deliveryMobile"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryAddressText">
+                    Adresse *
+                </label>
+
+                <textarea
+                    id="deliveryAddressText"
+                    name="deliveryAddressText"
+                    rows="3"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryPostalCode">
+                    Code postal *
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryPostalCode"
+                    name="deliveryPostalCode"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryCity">
+                    Ville *
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryCity"
+                    name="deliveryCity"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryRegion">
+                    Etat/Région/Canton *
+                </label>
+
+                <input
+                    type="text"
+                    id="deliveryRegion"
+                    name="deliveryRegion"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deliveryCountry">
+                    Pays *
+                </label>
+
+                <select
+                    id="deliveryCountry"
+                    name="deliveryCountry"
+                >
+
+                    <option value="">
+                        Sélectionner
+                    </option>
+
+                    <option value="France">
+                        France
+                    </option>
+
+                    <option value="Belgique">
+                        Belgique
+                    </option>
+
+                    <option value="Luxembourg">
+                        Luxembourg
+                    </option>
+
+                    <option value="Suisse">
+                        Suisse
+                    </option>
+
+                    <option value="Madagascar">
+                        Madagascar
+                    </option>
+
+                    <option value="Autre">
+                        Autre
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CONFIDENTIALITE -->
+    <!-- ========================= -->
+
+    <section class="account-section">
+
+        <div class="form-group">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="privacy"
+                    required
+                >
+
+                * J'accepte que mes données soient
+                enregistrées et utilisées pour le
+                traitement de mes futures commandes.
+
+            </label>
+
+        </div>
+
+
+        <p>
+            Vous affirmez avoir pris connaissance
+            de notre Politique de confidentialité.
+            Vous disposez d'un droit d'accès,
+            de rectification et d'opposition.
+        </p>
+
+
+        <div class="form-group">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="newsletter"
+                >
+
+                Inscription à la newsletter
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Créer mon compte
+    </button>
+
+
+    <div id="registerMessage"></div>
+
+</form>
+
+</div>
+
+</main>
+
+
+<script src="../assets/js/account.js"></script>
+
+</body>
+</html>

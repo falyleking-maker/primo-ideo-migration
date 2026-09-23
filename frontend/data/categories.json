@@ -1,0 +1,576 @@
+[
+  {
+    "name": "Cuisines",
+    "url": "https://www.primo-ideo.com/cuisines-tendances.htm",
+    "subcategories": [
+      {
+        "name": "Cuisines",
+        "url": "https://www.primo-ideo.com/cuisines-tendances.htm"
+      },
+      {
+        "name": "Eviers à encastrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/evier-a-encastrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Eviers à intégrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/evier-a-integrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Eviers à encastrer 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/evier-a-encastrer-1-5-bac-inox.htm"
+      },
+      {
+        "name": "Eviers à encastrer 2 bacs inox",
+        "url": "https://www.primo-ideo.com/evier-a-encastrer-2-bacs-inox.htm"
+      },
+      {
+        "name": "Eviers à poser 1 bac inox",
+        "url": "https://www.primo-ideo.com/evier-a-poser-1-bac-inox.htm"
+      },
+      {
+        "name": "Eviers à poser 2 bacs inox",
+        "url": "https://www.primo-ideo.com/evier-a-poser-2-bacs-inox.htm"
+      },
+      {
+        "name": "Eviers à encastrer 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/eviers-a-encastrer-1-bac-synthese.htm"
+      },
+      {
+        "name": "Eviers à encastrer 1.5 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/eviers-a-encastrer-1-5-bac-synthese.htm"
+      },
+      {
+        "name": "Eviers à encastrer 2 bacs \"synthèse\"",
+        "url": "https://www.primo-ideo.com/eviers-a-encastrer-2-bacs-synthese.htm"
+      },
+      {
+        "name": "Eviers à fleur de plan 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/eviers-a-fleur-de-plan-1-bac-synthese.htm"
+      },
+      {
+        "name": "Cuves à encastrer 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/cuves-a-encastrer-1-bac-synthese.htm"
+      },
+      {
+        "name": "Cuves à encastrer 2 bacs \"synthèse\"",
+        "url": "https://www.primo-ideo.com/cuves-a-encastrer-2-bacs-synthese.htm"
+      },
+      {
+        "name": "Cuves à encastrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/cuves-a-encastrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Cuves à encastrer 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/cuves-a-encastrer-1-5-bac-inox.htm"
+      },
+      {
+        "name": "Cuves à encastrer 2 bacs inox",
+        "url": "https://www.primo-ideo.com/cuves-a-encastrer-2-bacs-inox.htm"
+      },
+      {
+        "name": "Cuves à intégrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/cuve-a-integrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Cuves à intégrer 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/cuve-a-integrer-1-5-bac-inox.htm"
+      },
+      {
+        "name": "Cuve sous-plan 1 bac inox",
+        "url": "https://www.primo-ideo.com/cuve-sous-plan-1-bac-inox.htm"
+      },
+      {
+        "name": "Cuve sous-plan 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/cuve-sous-plan-1-5-bac-inox.htm"
+      },
+      {
+        "name": "Cuve sous-plan 2 bacs inox",
+        "url": "https://www.primo-ideo.com/cuve-sous-plan-2-bacs-inox.htm"
+      },
+      {
+        "name": "Cuve sous-plan 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/cuve-sous-plan-1-bac-synthese.htm"
+      },
+      {
+        "name": "Cuve sous-plan 1.5 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/cuve-sous-plan-1-5-bac-synthese.htm"
+      },
+      {
+        "name": "Mitigeurs à douchette",
+        "url": "https://www.primo-ideo.com/mitigeurs-a-douchette.htm"
+      },
+      {
+        "name": "Mitigeurs à bec",
+        "url": "https://www.primo-ideo.com/mitigeurs-a-bec.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-1-bac-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-1-5-bac-inox-720768.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 1.5 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-1-5-bac-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 2 bacs inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-2-bacs-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à encastrer 2 bacs \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-2-bacs-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à fleur de plan 1 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-fleur-de-plan-1-bac-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à fleur de plan 1.5 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-encastrer-1-5-bac-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + évier à fleur de plan 2 bacs inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-evier-a-fleur-de-plan-2-bacs-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve à encastrer 1 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-a-encastrer-1-bac-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve à encastrer 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-a-encastrer-1-bac-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve à encastrer 2 bacs inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-a-encastrer-2-bacs-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve à encastrer 2 bacs \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-a-encastrer-2-bacs-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve sous plan 1 bac inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-sous-plan-1-bac-inox.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve sous plan 1 bac \"synthèse\"",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-sous-plan-1-bac-en-materiaux-de-synthese-ou-granit.htm"
+      },
+      {
+        "name": "Lots mitigeur + cuve sous plan 2 bacs inox",
+        "url": "https://www.primo-ideo.com/lots-mitigeur-cuve-sous-plan-2-bacs-inox.htm"
+      },
+      {
+        "name": "Accessoires",
+        "url": "https://www.primo-ideo.com/accessoires-de-cuisine.htm"
+      }
+    ]
+  },
+  {
+    "name": "Gros électroménager",
+    "url": "",
+    "subcategories": [
+      {
+        "name": "Ballons thermodynamiques",
+        "url": "https://www.primo-ideo.com/ballon-thermodynamique.htm"
+      },
+      {
+        "name": "Caves à vin",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24111"
+      },
+      {
+        "name": "Congélateurs",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24112"
+      },
+      {
+        "name": "Congélateurs intégrables",
+        "url": "https://www.primo-ideo.com/congelateurs-integrables.htm"
+      },
+      {
+        "name": "Congélateurs intégrables sous plan",
+        "url": "https://www.primo-ideo.com/congelateur-sous-plan.htm"
+      },
+      {
+        "name": "Cuisinières",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24114"
+      },
+      {
+        "name": "Eviers et Robinetterie",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=105512"
+      },
+      {
+        "name": "Fours encastrables",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24117"
+      },
+      {
+        "name": "Fours à micro-ondes",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24115"
+      },
+      {
+        "name": "Fours à micro-ondes intégrables",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24116"
+      },
+      {
+        "name": "Tiroirs chauffe plats",
+        "url": "https://www.primo-ideo.com/tiroirs-chauffe-plats-212701.htm"
+      },
+      {
+        "name": "Tiroir de mise sous vide",
+        "url": "https://www.primo-ideo.com/tiroir-de-mise-sous-vide.htm"
+      },
+      {
+        "name": "Hottes et groupes filtrants",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24119"
+      },
+      {
+        "name": "Machines à café intégrables",
+        "url": "https://www.primo-ideo.com/machines-a-cafe-integrables.htm"
+      },
+      {
+        "name": "Kitchenette",
+        "url": "https://www.primo-ideo.com/kitchenette.htm"
+      },
+      {
+        "name": "Lave-linge",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24063"
+      },
+      {
+        "name": "Lave-linge séchants",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24099"
+      },
+      {
+        "name": "Lave-linge intégrables",
+        "url": "https://www.primo-ideo.com/lave-linge-integrables.htm"
+      },
+      {
+        "name": "Lave-vaisselle",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24106"
+      },
+      {
+        "name": "Lave-vaisselle de cuisson",
+        "url": "https://www.primo-ideo.com/lave-vaisselle-cuisson.htm"
+      },
+      {
+        "name": "Lave-vaisselle intégrables",
+        "url": "https://www.primo-ideo.com/cliquez-sur-image-de-la-famille-recherchee.htm"
+      },
+      {
+        "name": "Poêles à fioul",
+        "url": "https://www.primo-ideo.com/poeles-a-fioul.htm"
+      },
+      {
+        "name": "Poêles à gaz",
+        "url": "https://www.primo-ideo.com/poeles-a-gaz.htm"
+      },
+      {
+        "name": "Radiateurs à gaz",
+        "url": "https://www.primo-ideo.com/mag/fr/list-385928.htm"
+      },
+      {
+        "name": "Réfrigérateurs",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24109"
+      },
+      {
+        "name": "Réfrigérateurs intégrables",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24110"
+      },
+      {
+        "name": "Sèche-linge",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24104"
+      },
+      {
+        "name": "Tables de cuisson",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24118"
+      },
+      {
+        "name": "EQUIPEMENT PROFESSIONNEL",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=66778"
+      }
+    ]
+  },
+  {
+    "name": "Petit électroménager",
+    "url": "",
+    "subcategories": [
+      {
+        "name": "Casserolerie et ustensiles",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=72979"
+      },
+      {
+        "name": "Cave à vin",
+        "url": "https://www.primo-ideo.com/cave-a-vin.htm"
+      },
+      {
+        "name": "Cuisson",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24969"
+      },
+      {
+        "name": "Cuisson conviviale",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=36617"
+      },
+      {
+        "name": "Déshydrateur",
+        "url": "https://www.primo-ideo.com/deshydrateur.htm"
+      },
+      {
+        "name": "Entretien des sols",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24965"
+      },
+      {
+        "name": "Fabriques à glaçons",
+        "url": "https://www.primo-ideo.com/fabriques-a-glacons.htm"
+      },
+      {
+        "name": "Filtration de l'eau, fontaines",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=36618"
+      },
+      {
+        "name": "Hygiène, Beauté et Santé",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=36619"
+      },
+      {
+        "name": "Machines à bière",
+        "url": "https://www.primo-ideo.com/machines-a-biere.htm"
+      },
+      {
+        "name": "Mini Lave-Linge",
+        "url": "https://www.primo-ideo.com/mini-lave-linge.htm"
+      },
+      {
+        "name": "Mini Lave-vaisselle",
+        "url": "https://www.primo-ideo.com/mini-lave-vaisselle.htm"
+      },
+      {
+        "name": "Petit déjeuner",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24967"
+      },
+      {
+        "name": "Pistolet Vapeur",
+        "url": "https://www.primo-ideo.com/pistolet-vapeur.htm"
+      },
+      {
+        "name": "Préparation culinaire",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24968"
+      },
+      {
+        "name": "Soin du linge",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=24966"
+      },
+      {
+        "name": "Sorbetières",
+        "url": "https://www.primo-ideo.com/sorbetieres.htm"
+      },
+      {
+        "name": "Stérilisateur",
+        "url": "https://www.primo-ideo.com/sterilisateur.htm"
+      },
+      {
+        "name": "Lustreur à chaussures",
+        "url": "https://www.primo-ideo.com/lustreur-a-chaussures.htm"
+      },
+      {
+        "name": "Yaourtières",
+        "url": "https://www.primo-ideo.com/yaourtieres.htm"
+      },
+      {
+        "name": "Traitement de l'air",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=155180"
+      }
+    ]
+  },
+  {
+    "name": "Chauffage au bois",
+    "url": "",
+    "subcategories": [
+      {
+        "name": "Chaudières à granulés",
+        "url": "https://www.primo-ideo.com/chaudieres-a-granules.htm"
+      },
+      {
+        "name": "Cheminées \"toutes prêtes\"",
+        "url": "https://www.primo-ideo.com/cheminees-toutes-pretes.htm"
+      },
+      {
+        "name": "Cuisinières bois et charbon",
+        "url": "https://www.primo-ideo.com/cuisinieres-bois-et-charbon.htm"
+      },
+      {
+        "name": "Inserts et foyers à bois",
+        "url": "https://www.primo-ideo.com/foyers-inserts-a-bois.htm"
+      },
+      {
+        "name": "Inserts et foyers à granulés",
+        "url": "https://www.primo-ideo.com/inserts-a-granules-de-bois.htm"
+      },
+      {
+        "name": "Inserts et cuisinières à bouilleur",
+        "url": "https://www.primo-ideo.com/insert-bois-bouilleur.htm"
+      },
+      {
+        "name": "Poêles à bois",
+        "url": "https://www.primo-ideo.com/poeles-a-bois.htm"
+      },
+      {
+        "name": "Poêles à bois étanches",
+        "url": "https://www.primo-ideo.com/poeles-a-bois-etanches-ou-raccordables.htm"
+      },
+      {
+        "name": "Poêles à charbon",
+        "url": "https://www.primo-ideo.com/poeles-a-charbon.htm"
+      },
+      {
+        "name": "Poêles à granulés",
+        "url": "https://www.primo-ideo.com/poeles-a-pellets.htm"
+      },
+      {
+        "name": "Poêles à granulés étanches",
+        "url": "https://www.primo-ideo.com/poeles-a-granules-etanches.htm"
+      },
+      {
+        "name": "Poêles à granulés Hydro",
+        "url": "https://www.primo-ideo.com/poeles-a-pellets-hydro.htm"
+      },
+      {
+        "name": "Poêles bicombustible",
+        "url": "https://www.primo-ideo.com/poeles-bicombistible-bois-et-granuls.htm"
+      },
+      {
+        "name": "Pièces détachées d'appareils de chauffage au bois",
+        "url": "https://www.primo-ideo.com/pieces-detachees-appareil-de-chauffage-au-bois-et-granules.htm"
+      },
+      {
+        "name": "Accessoires",
+        "url": "https://www.primo-ideo.com/accessoires-pour-chauffage-au-bois.htm"
+      },
+      {
+        "name": "Ampoules basse consommation",
+        "url": "https://www.primo-ideo.com/ampoules-basse-consommation.htm"
+      },
+      {
+        "name": "Appareils à alternateur à manivelle",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=27251"
+      },
+      {
+        "name": "Energie solaire",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=67358"
+      },
+      {
+        "name": "Eco energie",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=68189"
+      },
+      {
+        "name": "Cheminées au bio éthanol",
+        "url": "https://www.primo-ideo.com/cheminees-au-bio-ethanol.htm"
+      },
+      {
+        "name": "Eolien",
+        "url": "https://www.primo-ideo.com/mag/fr/list-125855.htm"
+      },
+      {
+        "name": "Pompes à chaleur",
+        "url": "https://www.primo-ideo.com/pompes-a-chaleur-en-substitution.htm"
+      },
+      {
+        "name": "Piles rechargeables",
+        "url": "https://www.primo-ideo.com/piles-rechargeables.htm"
+      },
+      {
+        "name": "Produits d'entretien",
+        "url": "https://www.primo-ideo.com/produits-entretien-ecologiques.htm"
+      }
+    ]
+  },
+  {
+    "name": "Jardin et loisirs",
+    "url": "",
+    "subcategories": [
+      {
+        "name": "-Fauteuils et chaises",
+        "url": "https://www.primo-ideo.com/transat-teck.htm"
+      },
+      {
+        "name": "-Tables",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=291112"
+      },
+      {
+        "name": "Cuisinières extérieures à gaz",
+        "url": "https://www.primo-ideo.com/jardin-cuisine-exterieure-plancha-a-gaz.htm"
+      },
+      {
+        "name": "Cuisinières extérieures électriques",
+        "url": "https://www.primo-ideo.com/jardin-cuisine-exterieure-plancha-electrique.htm"
+      },
+      {
+        "name": "-Coffres et Armoires Bois",
+        "url": "https://www.primo-ideo.com/coffre-et-armoire-en-resine.htm"
+      },
+      {
+        "name": "-Abris, Coffres et Garage metal",
+        "url": "https://www.primo-ideo.com/garage-en-bois.htm"
+      },
+      {
+        "name": "-Abris resine",
+        "url": "https://www.primo-ideo.com/abris-jardin-en-resine.htm"
+      },
+      {
+        "name": "-Toits-Terrasse Alu et Polycarbonate",
+        "url": "https://www.primo-ideo.com/marquises.htm"
+      },
+      {
+        "name": "-Toits Terrasse bois",
+        "url": "https://www.primo-ideo.com/marquises.htm"
+      },
+      {
+        "name": "-Tonnelles",
+        "url": "https://www.primo-ideo.com/tonnelles.htm"
+      },
+      {
+        "name": "-Pergolas Bioclimatiques Ombrea",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=291120"
+      },
+      {
+        "name": "-Carports bois et Carport Aluminium et Polycarbonate",
+        "url": "https://www.primo-ideo.com/les-carports-marquise-et-pergolas.htm"
+      },
+      {
+        "name": "-Marquises",
+        "url": "https://www.primo-ideo.com/marquises.htm"
+      },
+      {
+        "name": "-Serres verre trempe avec base",
+        "url": "https://www.primo-ideo.com/mag/fr/menu.php?id=291123"
+      },
+      {
+        "name": "-Serres polycarbonate diamant avec base",
+        "url": "https://www.primo-ideo.com/serres-traditionnelles-halls.htm"
+      },
+      {
+        "name": "-Portiques bois",
+        "url": "https://www.primo-ideo.com/portiques.htm"
+      },
+      {
+        "name": "-Portiques funny - Aires de jeux",
+        "url": "https://www.primo-ideo.com/portiques.htm"
+      },
+      {
+        "name": "-Ensembles Repas",
+        "url": "https://www.primo-ideo.com/ensembles-repas.htm"
+      },
+      {
+        "name": "-Ensembles Canapés",
+        "url": "https://www.primo-ideo.com/ensembles-canapes.htm"
+      },
+      {
+        "name": "-Gamme mobilier teck",
+        "url": "https://www.primo-ideo.com/transat-teck.htm"
+      }
+    ]
+  }
+]

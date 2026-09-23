@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Produits | Primo-Idéo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body>
+
+    <!--
+        Le header, la navigation et le footer
+        sont générés par app.js
+    -->
+
+    <main>
+
+        <!-- EN-TÊTE DE PAGE -->
+        <section class="page-hero">
+            <div class="container">
+
+                <h1>Nos produits</h1>
+
+                <p>
+                    Découvrez les produits disponibles chez Primo-Idéo.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- CATALOGUE -->
+        <section class="section">
+
+            <div class="container">
+
+                <!-- TITRE -->
+                <div class="section-header">
+
+                    <div>
+                        <h2>Catalogue produits</h2>
+
+                        <p>
+                            Recherchez un produit, une marque ou une référence.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FILTRES -->
+                <div class="filters">
+
+                    <input
+                        type="search"
+                        id="productSearch"
+                        placeholder="Rechercher un produit, une marque, une référence..."
+                        autocomplete="off"
+                    >
+
+                    <select id="categoryFilter">
+                        <option value="">Toutes les catégories</option>
+                    </select>
+
+                    <select id="sortProducts">
+
+                        <option value="">
+                            Trier les produits
+                        </option>
+
+                        <option value="name">
+                            Nom
+                        </option>
+
+                        <option value="priceAsc">
+                            Prix croissant
+                        </option>
+
+                        <option value="priceDesc">
+                            Prix décroissant
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!--
+                    Les produits réels de catalog.js
+                    sont affichés ici par app.js
+                -->
+                <div
+                    id="productsGrid"
+                    class="grid products-grid"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- DONNÉES RÉELLES -->
+    <script src="../data/catalog.js"></script>
+
+    <!-- APPLICATION -->
+    <script src="../assets/js/app.js"></script>
+
+</body>
+
+</html>
