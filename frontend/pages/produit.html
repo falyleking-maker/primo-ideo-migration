@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 
@@ -8,26 +7,518 @@
 
     <title>Produit | Primo-Idéo</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- CSS du projet -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <!-- Icônes -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =====================================================
+           PAGE PRODUIT - DESIGN PRIMO-IDÉO
+           ===================================================== */
+
+        .product-page {
+            background: #f7f7f7;
+            padding: 30px 0 60px;
+            min-height: 70vh;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Fil d'Ariane */
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #f58220;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        /* Carte principale */
+
+        .product-main-card {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 45px;
+            padding: 35px;
+        }
+
+        /* Zone image */
+
+        .product-image-area {
+            min-width: 0;
+        }
+
+        .product-image-box {
+            background: #fff;
+            border: 1px solid #eee;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-box img {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            height: 430px;
+            object-fit: contain;
+            transition: transform .3s ease;
+        }
+
+        .product-image-box:hover img {
+            transform: scale(1.04);
+        }
+
+        .no-image {
+            text-align: center;
+            color: #999;
+            font-size: 15px;
+        }
+
+        .no-image i {
+            display: block;
+            font-size: 55px;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Galerie */
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            height: 90px;
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 6px;
+            cursor: pointer;
+            transition: .2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover,
+        .gallery-item.active {
+            border-color: #f58220;
+            box-shadow: 0 0 0 1px #f58220;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Informations produit */
+
+        .product-info {
+            padding: 5px 0;
+        }
+
+        .product-brand {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 7px 13px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 30px;
+            line-height: 1.25;
+            color: #111;
+            margin: 0 0 20px;
+            font-weight: 700;
+        }
+
+        .product-reference {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .product-reference strong {
+            color: #333;
+        }
+
+        /* Catégorie */
+
+        .product-category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: #fff3e8;
+            color: #d96a0b;
+            border: 1px solid #ffd5b2;
+            padding: 7px 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Prix */
+
+        .product-price-box {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            margin-bottom: 25px;
+        }
+
+        .price-label {
+            display: block;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: #f58220;
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* Description */
+
+        .description-box {
+            margin-bottom: 28px;
+        }
+
+        .description-box h3 {
+            font-size: 18px;
+            color: #111;
+            margin: 0 0 10px;
+        }
+
+        .description-box h3::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #f58220;
+            margin-top: 8px;
+        }
+
+        .description-box p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 15px;
+            white-space: pre-line;
+        }
+
+        /* Boutons */
+
+        .product-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .product-btn {
+            border: none;
+            padding: 14px 20px;
+            min-height: 48px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .product-btn-primary {
+            background: #f58220;
+            color: #fff;
+        }
+
+        .product-btn-primary:hover {
+            background: #d96a0b;
+            transform: translateY(-1px);
+        }
+
+        .product-btn-dark {
+            background: #111;
+            color: #fff;
+        }
+
+        .product-btn-dark:hover {
+            background: #2b2b2b;
+        }
+
+        .product-btn-light {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .product-btn-light:hover {
+            border-color: #f58220;
+            color: #f58220;
+        }
+
+        /* Informations complémentaires */
+
+        .product-features {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .feature i {
+            width: 25px;
+            color: #f58220;
+            text-align: center;
+        }
+
+        /* Section images */
+
+        .gallery-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            padding: 25px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #111;
+        }
+
+        .section-title i {
+            color: #f58220;
+        }
+
+        /* Produit introuvable */
+
+        .product-not-found {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 60px 25px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,.06);
+        }
+
+        .product-not-found i {
+            font-size: 55px;
+            color: #f58220;
+            margin-bottom: 15px;
+        }
+
+        .product-not-found h2 {
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .product-not-found p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .product-main-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 25px;
+            }
+
+            .product-image-box {
+                min-height: 400px;
+            }
+
+            .product-image-box img {
+                height: 360px;
+            }
+
+            .product-title {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .product-page {
+                padding: 20px 0 40px;
+            }
+
+            .product-container {
+                padding: 0 12px;
+            }
+
+            .product-main-card {
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .product-image-box {
+                min-height: 280px;
+                padding: 15px;
+            }
+
+            .product-image-box img {
+                height: 270px;
+            }
+
+            .product-title {
+                font-size: 22px;
+            }
+
+            .product-price {
+                font-size: 28px;
+            }
+
+            .product-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .product-btn {
+                width: 100%;
+            }
+
+            .product-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery-item {
+                height: 75px;
+            }
+
+            .gallery-section {
+                padding: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 19px;
+            }
+
+            .breadcrumb {
+                font-size: 12px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
+    <!-- L'en-tête principal du projet est généré par app.js -->
+
     <section class="page-hero">
         <div class="container">
             <h1>Détail du produit</h1>
-            <p>Informations du produit provenant du catalogue Primo-Idéo.</p>
+            <p>Découvrez les informations disponibles sur ce produit.</p>
         </div>
     </section>
 
-    <main class="content">
+    <main class="product-page">
 
-        <div class="container">
+        <div class="product-container">
+
+            <!-- Fil d'Ariane -->
+
+            <div class="breadcrumb">
+
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Accueil
+                </a>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <a href="produits.html">
+                    Produits
+                </a>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>Détail du produit</span>
+
+            </div>
+
+            <!-- Produit -->
 
             <div id="productDetail">
 
-                <p>Chargement du produit...</p>
+                <div class="product-not-found">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <h2>Chargement du produit...</h2>
+                    <p>Veuillez patienter.</p>
+                </div>
 
             </div>
 
@@ -35,14 +526,17 @@
 
     </main>
 
+    <!-- Catalogue réel -->
     <script src="../data/catalog.js"></script>
 
     <script>
+
         (function () {
 
             "use strict";
 
             const data = window.PRIMO_DATA || {};
+
             const products = Array.isArray(data.products)
                 ? data.products
                 : [];
@@ -50,14 +544,26 @@
             const container =
                 document.getElementById("productDetail");
 
+
+            /* =====================================================
+               SÉCURITÉ HTML
+               ===================================================== */
+
             function escapeHTML(value) {
+
                 return String(value ?? "")
                     .replace(/&/g, "&amp;")
                     .replace(/</g, "&lt;")
                     .replace(/>/g, "&gt;")
                     .replace(/"/g, "&quot;")
                     .replace(/'/g, "&#039;");
+
             }
+
+
+            /* =====================================================
+               FORMAT PRIX
+               ===================================================== */
 
             function formatPrice(value) {
 
@@ -84,7 +590,13 @@
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
                 }) + " €";
+
             }
+
+
+            /* =====================================================
+               RÉCUPÉRATION DU PRODUIT
+               ===================================================== */
 
             function getProduct() {
 
@@ -94,53 +606,78 @@
                 const id = params.get("id");
                 const reference = params.get("reference");
 
+
                 if (id) {
+
                     const productById =
                         products.find(function (product) {
+
                             return String(product.id) === String(id);
+
                         });
 
                     if (productById) {
                         return productById;
                     }
+
                 }
 
+
                 if (reference) {
+
                     const productByReference =
                         products.find(function (product) {
-                            return String(product.reference) === String(reference);
+
+                            return String(product.reference) ===
+                                String(reference);
+
                         });
 
                     if (productByReference) {
                         return productByReference;
                     }
+
                 }
 
+
                 return null;
+
             }
+
+
+            /* =====================================================
+               PANIER
+               ===================================================== */
 
             function addToCart(product) {
 
                 let cart = [];
 
                 try {
-                    cart =
-                        JSON.parse(
-                            localStorage.getItem("cart") || "[]"
-                        );
+
+                    cart = JSON.parse(
+                        localStorage.getItem("cart") || "[]"
+                    );
 
                     if (!Array.isArray(cart)) {
                         cart = [];
                     }
 
                 } catch (error) {
+
                     cart = [];
+
                 }
+
 
                 const existing =
                     cart.find(function (item) {
-                        return String(item.id) === String(product.id);
+
+                        return String(item.id) ===
+                            String(product.id);
+
                     });
+
 
                 if (existing) {
 
@@ -150,54 +687,88 @@
                 } else {
 
                     cart.push({
+
                         id: product.id,
-                        reference: product.reference || "",
-                        name: product.name || "",
-                        brand: product.brand || "",
-                        price: product.price || "",
-                        image: product.image || product.image_url || "",
-                        url: product.url || "",
+
+                        reference:
+                            product.reference || "",
+
+                        name:
+                            product.name || "",
+
+                        brand:
+                            product.brand || "",
+
+                        price:
+                            product.price || "",
+
+                        image:
+                            product.image ||
+                            product.image_url ||
+                            "",
+
+                        url:
+                            product.url || "",
+
                         quantity: 1
+
                     });
 
                 }
+
 
                 localStorage.setItem(
                     "cart",
                     JSON.stringify(cart)
                 );
 
+
                 alert("Produit ajouté au panier.");
 
             }
+
+
+            /* =====================================================
+               AFFICHAGE DU PRODUIT
+               ===================================================== */
 
             function displayProduct(product) {
 
                 if (!product) {
 
                     container.innerHTML = `
-                        <div class="empty-message">
+
+                        <div class="product-not-found">
+
+                            <i class="fa-solid fa-box-open"></i>
+
                             <h2>Produit introuvable</h2>
 
                             <p>
                                 Aucun produit correspondant
-                                n'a été trouvé dans les données
-                                du catalogue.
+                                n'a été trouvé dans le catalogue.
                             </p>
 
-                            <p>
-                                <a href="produits.html">
-                                    Retour aux produits
-                                </a>
-                            </p>
+                            <a
+                                href="produits.html"
+                                class="product-btn product-btn-primary"
+                            >
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Retour aux produits
+                            </a>
+
                         </div>
+
                     `;
 
                     return;
+
                 }
+
 
                 const name =
                     product.name || "Produit";
+
 
                 const image =
                     product.image ||
@@ -208,130 +779,223 @@
                             : ""
                     );
 
+
                 const price =
                     formatPrice(product.price);
+
 
                 const images =
                     Array.isArray(product.images)
                         ? product.images
                         : [];
 
-                let gallery = "";
+
+                /* Galerie */
+
+                let galleryHTML = "";
+
 
                 if (images.length > 0) {
 
-                    gallery = `
-                        <div class="product-gallery">
-                            ${images
-                                .map(function (img) {
+                    galleryHTML = `
 
-                                    return `
+                        <div class="product-gallery">
+
+                            ${images.map(function (img, index) {
+
+                                return `
+
+                                    <div
+                                        class="gallery-item ${index === 0 ? "active" : ""}"
+                                        data-image="${escapeHTML(img)}"
+                                    >
+
                                         <img
                                             src="${escapeHTML(img)}"
                                             alt="${escapeHTML(name)}"
                                             loading="lazy"
-                                            style="max-width:100%;"
                                         >
-                                    `;
 
-                                })
-                                .join("")
-                            }
+                                    </div>
+
+                                `;
+
+                            }).join("")}
+
                         </div>
+
                     `;
 
                 }
 
+
                 container.innerHTML = `
 
-                    <article class="product-detail">
+                    <article class="product-main-card">
 
-                        <div class="product-detail-image">
+                        <!-- IMAGE -->
 
-                            ${
-                                image
-                                ? `
-                                    <img
-                                        src="${escapeHTML(image)}"
-                                        alt="${escapeHTML(name)}"
-                                        style="max-width:100%;"
-                                    >
-                                `
-                                : `
-                                    <p>
-                                        Image indisponible
-                                    </p>
-                                `
-                            }
+                        <div class="product-image-area">
+
+                            <div class="product-image-box">
+
+                                ${
+                                    image
+                                    ? `
+
+                                        <img
+                                            id="mainProductImage"
+                                            src="${escapeHTML(image)}"
+                                            alt="${escapeHTML(name)}"
+                                        >
+
+                                    `
+                                    : `
+
+                                        <div class="no-image">
+
+                                            <i class="fa-regular fa-image"></i>
+
+                                            <span>
+                                                Image indisponible
+                                            </span>
+
+                                        </div>
+
+                                    `
+                                }
+
+                            </div>
+
+
+                            ${galleryHTML}
 
                         </div>
 
-                        <div class="product-detail-content">
 
-                            <h2>
-                                ${escapeHTML(name)}
-                            </h2>
+                        <!-- INFORMATIONS -->
+
+                        <div class="product-info">
 
                             ${
                                 product.brand
                                 ? `
-                                    <p>
-                                        <strong>Marque :</strong>
+
+                                    <span class="product-brand">
+
                                         ${escapeHTML(product.brand)}
-                                    </p>
+
+                                    </span>
+
                                 `
                                 : ""
                             }
+
+
+                            <h2 class="product-title">
+
+                                ${escapeHTML(name)}
+
+                            </h2>
+
 
                             ${
                                 product.reference
                                 ? `
-                                    <p>
+
+                                    <div class="product-reference">
+
                                         <strong>Référence :</strong>
+
                                         ${escapeHTML(product.reference)}
-                                    </p>
+
+                                    </div>
+
                                 `
                                 : ""
                             }
 
-                            ${
-                                product.category
-                                ? `
-                                    <p>
-                                        <strong>Catégorie :</strong>
-                                        ${escapeHTML(product.category)}
-                                    </p>
-                                `
-                                : ""
-                            }
 
                             ${
+                                product.category ||
                                 product.subcategory
                                 ? `
-                                    <p>
-                                        <strong>Sous-catégorie :</strong>
-                                        ${escapeHTML(product.subcategory)}
-                                    </p>
+
+                                    <div class="product-category">
+
+                                        ${
+                                            product.category
+                                            ? `
+
+                                                <span class="category-badge">
+
+                                                    <i class="fa-solid fa-tag"></i>
+
+                                                    ${escapeHTML(
+                                                        product.category
+                                                    )}
+
+                                                </span>
+
+                                            `
+                                            : ""
+                                        }
+
+                                        ${
+                                            product.subcategory
+                                            ? `
+
+                                                <span class="category-badge">
+
+                                                    ${escapeHTML(
+                                                        product.subcategory
+                                                    )}
+
+                                                </span>
+
+                                            `
+                                            : ""
+                                        }
+
+                                    </div>
+
                                 `
                                 : ""
                             }
+
 
                             ${
                                 price
                                 ? `
-                                    <p class="product-price">
-                                        ${escapeHTML(price)}
-                                    </p>
+
+                                    <div class="product-price-box">
+
+                                        <span class="price-label">
+                                            Prix
+                                        </span>
+
+                                        <p class="product-price">
+
+                                            ${escapeHTML(price)}
+
+                                        </p>
+
+                                    </div>
+
                                 `
                                 : ""
                             }
 
+
                             ${
                                 product.description
                                 ? `
-                                    <div class="product-description">
 
-                                        <h3>Description</h3>
+                                    <div class="description-box">
+
+                                        <h3>
+                                            Description
+                                        </h3>
 
                                         <p>
                                             ${escapeHTML(
@@ -340,48 +1004,116 @@
                                         </p>
 
                                     </div>
+
                                 `
                                 : ""
                             }
+
 
                             <div class="product-actions">
 
                                 <button
                                     type="button"
                                     id="addToCart"
-                                    class="btn btn-primary"
+                                    class="product-btn product-btn-primary"
                                 >
+
+                                    <i class="fa-solid fa-cart-plus"></i>
+
                                     Ajouter au panier
+
                                 </button>
+
 
                                 <a
                                     href="panier.html"
-                                    class="btn btn-light"
+                                    class="product-btn product-btn-dark"
                                 >
+
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
                                     Voir le panier
+
                                 </a>
+
 
                                 <a
                                     href="produits.html"
-                                    class="btn btn-light-outline"
+                                    class="product-btn product-btn-light"
                                 >
+
+                                    <i class="fa-solid fa-arrow-left"></i>
+
                                     Retour aux produits
+
                                 </a>
 
                             </div>
 
+
+                            <div class="product-features">
+
+                                <div class="feature">
+
+                                    <i class="fa-solid fa-circle-check"></i>
+
+                                    <span>
+                                        Produit issu du catalogue Primo-Idéo
+                                    </span>
+
+                                </div>
+
+
+                                <div class="feature">
+
+                                    <i class="fa-solid fa-mobile-screen"></i>
+
+                                    <span>
+                                        Interface adaptée aux mobiles
+                                    </span>
+
+                                </div>
+
+
+                                <div class="feature">
+
+                                    <i class="fa-solid fa-bag-shopping"></i>
+
+                                    <span>
+                                        Ajout possible au panier
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
                             ${
                                 product.url
                                 ? `
-                                    <p>
+
+                                    <div style="margin-top:20px;">
+
                                         <a
                                             href="${escapeHTML(product.url)}"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            style="
+                                                color:#f58220;
+                                                font-size:14px;
+                                                font-weight:600;
+                                                text-decoration:none;
+                                            "
                                         >
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
                                             Voir la fiche originale
+
                                         </a>
-                                    </p>
+
+                                    </div>
+
                                 `
                                 : ""
                             }
@@ -390,39 +1122,70 @@
 
                     </article>
 
-                    ${
-                        gallery
-                        ? `
-                            <section class="section">
-
-                                <div class="section-header">
-
-                                    <div>
-                                        <h2>
-                                            Images du produit
-                                        </h2>
-                                    </div>
-
-                                </div>
-
-                                ${gallery}
-
-                            </section>
-                        `
-                        : ""
-                    }
-
                 `;
+
+
+                /* =================================================
+                   GALERIE
+                   ================================================= */
+
+                const mainImage =
+                    document.getElementById("mainProductImage");
+
+
+                const galleryItems =
+                    document.querySelectorAll(".gallery-item");
+
+
+                galleryItems.forEach(function (item) {
+
+                    item.addEventListener(
+                        "click",
+                        function () {
+
+                            const selectedImage =
+                                item.getAttribute("data-image");
+
+
+                            if (mainImage && selectedImage) {
+
+                                mainImage.src =
+                                    selectedImage;
+
+                            }
+
+
+                            galleryItems.forEach(function (element) {
+
+                                element.classList.remove("active");
+
+                            });
+
+
+                            item.classList.add("active");
+
+                        }
+                    );
+
+                });
+
+
+                /* =================================================
+                   BOUTON PANIER
+                   ================================================= */
 
                 const addButton =
                     document.getElementById("addToCart");
+
 
                 if (addButton) {
 
                     addButton.addEventListener(
                         "click",
                         function () {
+
                             addToCart(product);
+
                         }
                     );
 
@@ -430,14 +1193,25 @@
 
             }
 
-            const product = getProduct();
+
+            /* =====================================================
+               INITIALISATION
+               ===================================================== */
+
+            const product =
+                getProduct();
+
 
             displayProduct(product);
 
         })();
+
     </script>
+
+
+    <!-- JS principal du projet -->
+    <script src="../assets/js/app.js"></script>
 
 </body>
 
 </html>
-
