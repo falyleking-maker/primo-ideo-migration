@@ -748,3 +748,187 @@ input:focus, select:focus, textarea:focus { border-color: var(--primo-orange); b
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* =========================================================
+   PRIMO-IDÉO — MENU COMMUN
+   ========================================================= */
+
+.primo-navigation {
+    position: relative;
+    z-index: 9999;
+}
+
+/* Bouton burger */
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+    transition: 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 3px;
+
+    border-radius: 5px;
+
+    background: #222;
+
+    transition: 0.3s ease;
+}
+
+
+/* Animation burger */
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Navigation */
+
+.main-navigation {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    padding: 90px 20px 30px;
+
+    background: #ffffff;
+
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+
+    transform: translateX(-105%);
+
+    transition: transform 0.35s ease;
+
+    overflow-y: auto;
+
+    z-index: 10000;
+}
+
+
+/* Menu ouvert */
+
+.main-navigation.active {
+    transform: translateX(0);
+}
+
+
+/* Liens */
+
+.main-navigation .nav-link {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    margin-bottom: 8px;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    color: #222;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* Survol */
+
+.main-navigation .nav-link:hover {
+    transform: translateX(5px);
+    background: #f1f1f1;
+}
+
+
+/* Page actuelle */
+
+.main-navigation .nav-link.active {
+    background: #222;
+    color: #fff;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .main-navigation {
+        width: 85%;
+        max-width: 300px;
+    }
+
+    .menu-toggle {
+        top: 15px;
+        left: 15px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+}
+
+
+/* Très petit écran */
+
+@media (max-width: 400px) {
+
+    .main-navigation {
+        width: 88%;
+    }
+
+    .main-navigation .nav-link {
+        font-size: 15px;
+    }
+
+}
+
