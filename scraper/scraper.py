@@ -435,39 +435,183 @@ def extract_price(soup):
 # ============================================================
 
 def extract_description(soup):
+    """
+    V9 - Extraction renforcée de la description réelle du produit.
+    Aucun texte n'est inventé.
+    """
+
+    if soup is None:
+        return ""
 
     selectors = [
-        ".description",
+        "[itemprop='description']",
         ".product-description",
         ".product_detail",
+        ".product-details",
         ".description-produit",
-        "[itemprop='description']"
+        ".description_product",
+        ".description",
+        "#description",
+        "#product-description",
+        "[class*='product-description']",
+        "[class*='description-produit']",
+        "[id*='description']",
+        "[class*='description']",
     ]
 
-    for selector in selectors:
-
-        element = soup.select_one(selector)
-
-        if element:
-
-            text = clean_text(
-                element.get_text(" ", strip=True)
-            )
-
-            if text:
-                return text
-
-    # Meta description
-    meta = soup.find(
-        "meta",
-        attrs={"name": "description"}
+    bad_words = (
+        "menu", "navigation", "breadcrumb", "fil-ariane",
+        "footer", "header", "cookie", "newsletter",
+        "social", "share", "partage", "related",
+        "recommend", "similaire", "panier", "cart",
+        "login", "connexion", "contact", "formulaire",
+        "form", "price", "prix", "gallery", "galerie",
+        "image", "thumbnail"
     )
 
-    if meta:
+    def clean_description_element(element):
+        if element is None:
+            return ""
 
-        return clean_text(
-            meta.get("content", "")
-        )
+        node = BeautifulSoup(str(element), "html.parser")
+
+        for tag in node.find_all([
+            "script", "style", "noscript", "iframe",
+            "form", "button", "input", "select",
+            "textarea", "svg", "nav"
+        ]):
+            tag.decompose()
+
+        pieces = []
+
+        for child in node.find_all(
+            ["h2", "h3", "h4", "p", "li", "dt", "dd"]
+        ):
+            value = clean_text(child.get_text(" ", strip=True))
+            if value:
+                pieces.append(value)
+
+        if not pieces:
+            return clean_text(node.get_text(" ", strip=True))
+
+        unique = []
+        seen = set()
+
+        for piece in pieces:
+            key = piece.lower()
+            if key not in seen:
+                seen.add(key)
+                unique.append(piece)
+
+        return "\n\n".join(unique).strip()
+
+    priority = {
+        "[itemprop='description']": 100,
+        ".product-description": 95,
+        ".product_detail": 90,
+        ".product-details": 88,
+        ".description-produit": 85,
+        ".description_product": 82,
+        ".description": 80,
+        "#description": 78,
+        "#product-description": 76,
+    }
+
+    candidates = []
+
+    for selector in selectors:
+        try:
+            elements = soup.select(selector)
+        except Exception:
+            elements = []
+
+        for element in elements:
+            value = clean_description_element(element)
+
+            if not value:
+                continue
+
+            classes = " ".join(element.get("class", [])).lower()
+            if any(word in classes for word in bad_words):
+                continue
+
+            score = priority.get(selector, 50)
+            length = len(value)
+
+            if length >= 100:
+                score += 20
+            elif length >= 50:
+                score += 10
+            elif length < 20:
+                score -= 20
+
+            if length > 15000:
+                score -= 40
+
+            candidates.append((score, value))
+
+    if candidates:
+        candidates.sort(key=lambda item: item[0], reverse=True)
+        return candidates[0][1]
+
+    # Meta description
+    for attrs in [
+        {"name": "description"},
+        {"property": "og:description"},
+        {"name": "twitter:description"},
+    ]:
+        meta = soup.find("meta", attrs=attrs)
+
+        if meta:
+            value = clean_text(meta.get("content", ""))
+            if value:
+                return value
+
+    # JSON-LD Product.description
+    for script in soup.find_all(
+        "script",
+        type="application/ld+json"
+    ):
+        raw = script.string or script.get_text()
+
+        if not raw:
+            continue
+
+        try:
+            data = json.loads(raw)
+        except Exception:
+            continue
+
+        items = []
+
+        if isinstance(data, dict):
+            items.append(data)
+            graph = data.get("@graph")
+            if isinstance(graph, list):
+                items.extend(graph)
+
+        elif isinstance(data, list):
+            items.extend(data)
+
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+
+            item_type = item.get("@type", "")
+
+            if (
+                item_type == "Product"
+                or (
+                    isinstance(item_type, list)
+                    and "Product" in item_type
+                )
+            ):
+                value = clean_text(
+                    item.get("description", "")
+                )
+
+                if value:
+                    return value
 
     return ""
 
@@ -922,6 +1066,59 @@ def add_product(product):
         )
 
 
+
+# ============================================================
+# PROGRESSION PRODUITS V9.1
+# ============================================================
+
+def load_products_progress():
+    """Recharge les produits déjà collectés."""
+    if not os.path.exists(PRODUCTS_PROGRESS_FILE):
+        return []
+
+    try:
+        with open(PRODUCTS_PROGRESS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except Exception as e:
+        logger.warning(
+            "Impossible de charger products_progress.json : %s", e
+        )
+        return []
+
+
+def save_products_progress(products):
+    """Sauvegarde immédiatement les produits collectés."""
+    tmp_file = PRODUCTS_PROGRESS_FILE + ".tmp"
+
+    try:
+        with open(tmp_file, "w", encoding="utf-8") as f:
+            json.dump(products, f, ensure_ascii=False, indent=2)
+
+        os.replace(tmp_file, PRODUCTS_PROGRESS_FILE)
+
+    except Exception as e:
+        logger.warning(
+            "Impossible de sauvegarder les produits : %s", e
+        )
+
+
+def merge_product(existing_products, product):
+    """Ajoute ou met à jour un produit sans créer de doublon."""
+    url = product.get("url", "").strip()
+
+    if not url:
+        return existing_products
+
+    for i, old in enumerate(existing_products):
+        if old.get("url", "").strip() == url:
+            existing_products[i] = product
+            return existing_products
+
+    existing_products.append(product)
+    return existing_products
+
+
 # ============================================================
 # CRAWLER PRINCIPAL
 # ============================================================
@@ -1051,8 +1248,20 @@ def crawl():
         len(visited_urls)
     )
 
+    description_count = sum(
+        1
+        for product in products
+        if clean_text(product.get("description", ""))
+    )
+
     logger.info(
         "Produits trouvés : %s",
+        len(products)
+    )
+
+    logger.info(
+        "Descriptions trouvées : %s/%s",
+        description_count,
         len(products)
     )
 
@@ -1238,9 +1447,28 @@ def print_statistics():
         f"Erreurs : {len(errors)}"
     )
 
-    print(
-        f"Images : {sum(len(p.get('images', [])) for p in products)}"
+    image_total = sum(
+        len(p.get("images", []))
+        for p in products
     )
+
+    description_total = sum(
+        1
+        for p in products
+        if clean_text(p.get("description", ""))
+    )
+
+    print(f"Images : {image_total}")
+    print(
+        f"Descriptions trouvées : "
+        f"{description_total}/{len(products)}"
+    )
+
+    if products and description_total < len(products):
+        print(
+            "Attention : certains produits n'ont pas de "
+            "description détectable sur leur fiche source."
+        )
 
     print()
     print("Fichiers :")

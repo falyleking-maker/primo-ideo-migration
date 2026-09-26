@@ -2,12 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Primo-Idéo | Accueil</title>
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
+
 <body>
+
+    <!-- =========================================
+         TOPBAR
+         ========================================= -->
     <div class="topbar">
         <div class="container">
             <span>Bienvenue sur Primo-Ideo</span>
@@ -15,73 +22,264 @@
         </div>
     </div>
 
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="index.html" class="logo"><span>PRIMO</span>-IDEO</a>
+
+            <a href="index.html" class="logo">
+                <span>PRIMO</span>-IDEO
+            </a>
 
             <form class="search-box" id="search-form">
-                <input type="search" id="search-input" placeholder="Rechercher un produit...">
-                <button type="submit">Rechercher</button>
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Rechercher un produit..."
+                    autocomplete="off"
+                >
+
+                <button type="submit">
+                    Rechercher
+                </button>
             </form>
 
             <div class="header-actions">
-                <a href="pages/connexion.html" class="header-link">Connexion</a>
-                <a href="pages/inscription.html" class="header-link">Inscription</a>
-                <a href="pages/panier.html" class="cart-link">
-                    🛒 Panier <span id="cart-count" class="cart-count">0</span>
+
+                <a
+                    href="pages/connexion.html"
+                    class="header-link"
+                >
+                    Connexion
                 </a>
+
+                <a
+                    href="pages/inscription.html"
+                    class="header-link"
+                >
+                    Inscription
+                </a>
+
+                <a
+                    href="pages/panier.html"
+                    class="cart-link"
+                >
+                    🛒 Panier
+                    <span
+                        id="cart-count"
+                        class="cart-count"
+                    >0</span>
+                </a>
+
             </div>
+
         </div>
     </header>
 
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
     <nav class="main-nav">
-        <div class="container nav-inner">
-            <a href="index.html">Accueil</a>
-            <a href="pages/categories.html">Catégories</a>
-            <a href="pages/produits.html">Produits</a>
-            <a href="pages/services.html">Services</a>
-            <a href="pages/livraison.html">Livraison</a>
-            <a href="pages/contact.html">Contact</a>
-            <a href="pages/connexion.html">Mon compte</a>
+
+        <div class="container main-nav-inner">
+
+            <!-- BOUTON BURGER -->
+            <button
+                class="mobile-menu-button"
+                id="mobile-menu-button"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+            <!-- MENU PRINCIPAL -->
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Accueil
+            </a>
+
+            <a
+                href="pages/categories.html"
+                class="nav-link"
+            >
+                Catégories
+            </a>
+
+            <a
+                href="pages/produits.html"
+                class="nav-link"
+            >
+                Produits
+            </a>
+
+            <a
+                href="pages/services.html"
+                class="nav-link"
+            >
+                Services
+            </a>
+
+            <a
+                href="pages/livraison.html"
+                class="nav-link"
+            >
+                Livraison
+            </a>
+
+            <a
+                href="pages/contact.html"
+                class="nav-link"
+            >
+                Contact
+            </a>
+
+            <a
+                href="pages/connexion.html"
+                class="nav-link nav-cta"
+            >
+                Mon compte
+            </a>
+
         </div>
+
     </nav>
 
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
     <section class="hero">
+
         <div class="container">
-            <h1>Découvrez nos produits</h1>
-            <p>Une interface moderne pour retrouver les produits, catégories, services et informations publiques de Primo-Idéo.</p>
+
+            <h1>
+                Découvrez nos produits
+            </h1>
+
+            <p>
+                Une interface moderne pour retrouver les produits,
+                catégories, services et informations publiques de Primo-Idéo.
+            </p>
+
             <div class="hero-actions">
-                <a class="btn btn-primary" href="pages/produits.html">Découvrir les produits</a>
-                <a class="btn btn-light" href="pages/categories.html">Voir les catégories</a>
+
+                <a
+                    class="btn btn-primary"
+                    href="pages/produits.html"
+                >
+                    Découvrir les produits
+                </a>
+
+                <a
+                    class="btn btn-light"
+                    href="pages/categories.html"
+                >
+                    Voir les catégories
+                </a>
+
             </div>
+
         </div>
+
     </section>
+
+
+    <!-- =========================================
+         CATÉGORIES
+         ========================================= -->
     <section class="section">
+
         <div class="container">
+
             <div class="section-header">
+
                 <div>
-                    <h2>Nos catégories</h2>
-                    <p>Explorez les familles de produits.</p>
+
+                    <h2>
+                        Nos catégories
+                    </h2>
+
+                    <p>
+                        Explorez les familles de produits.
+                    </p>
+
                 </div>
+
             </div>
-            <div id="homeCategories" class="grid categories-grid"></div>
+
+
+            <div
+                id="homeCategories"
+                class="grid categories-grid"
+            ></div>
+
         </div>
+
     </section>
+
+
+    <!-- =========================================
+         PRODUITS
+         ========================================= -->
     <section class="section">
+
         <div class="container">
+
             <div class="section-header">
+
                 <div>
-                    <h2>Quelques produits</h2>
-                    <p>Produits issus des données scrapées.</p>
+
+                    <h2>
+                        Quelques produits
+                    </h2>
+
+                    <p>
+                        Produits issus des données scrapées.
+                    </p>
+
                 </div>
-                <a class="btn btn-light-outline" href="pages/produits.html">Voir tout</a>
+
+
+                <a
+                    class="btn btn-light-outline"
+                    href="pages/produits.html"
+                >
+                    Voir tout
+                </a>
+
             </div>
-                <div id="homeProducts" class="grid products-grid"></div>
+
+
+            <div
+                id="homeProducts"
+                class="grid products-grid"
+            ></div>
+
         </div>
+
     </section>
-        <script src="data/catalog.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/account-status.js"></script>
-        <script src="assets/js/account-status.js"></script>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="data/catalog.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/account-status.js"></script>
+
 </body>
 </html>

@@ -2257,3 +2257,607 @@
     );
 
 })();
+
+/* =========================================================
+   PRIMO-IDÉO
+   APPLICATION FRONT-END
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       MENU MOBILE
+       ===================================================== */
+
+    const menuButton = document.getElementById(
+        "mobile-menu-button"
+    );
+
+    const mainNav = document.querySelector(
+        ".main-nav"
+    );
+
+
+    if (menuButton && mainNav) {
+
+        menuButton.addEventListener("click", function () {
+
+            const isOpen =
+                mainNav.classList.toggle("mobile-open");
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Fermer le menu"
+                    : "Ouvrir le menu"
+            );
+
+        });
+
+
+        /* Fermer le menu après avoir cliqué sur un lien */
+
+        const menuLinks =
+            mainNav.querySelectorAll(".nav-link");
+
+
+        menuLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (
+                    window.innerWidth <= 700
+                ) {
+
+                    mainNav.classList.remove(
+                        "mobile-open"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Ouvrir le menu"
+                    );
+
+                }
+
+            });
+
+        });
+
+
+        /* Fermer avec la touche Échap */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    mainNav.classList.contains(
+                        "mobile-open"
+                    )
+                ) {
+
+                    mainNav.classList.remove(
+                        "mobile-open"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Ouvrir le menu"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* Fermer si on repasse sur ordinateur */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (
+                    window.innerWidth > 700
+                ) {
+
+                    mainNav.classList.remove(
+                        "mobile-open"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Ouvrir le menu"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       RECHERCHE
+       ===================================================== */
+
+    const searchForm =
+        document.getElementById("search-form");
+
+    const searchInput =
+        document.getElementById("search-input");
+
+
+    if (searchForm && searchInput) {
+
+        searchForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const query =
+                    searchInput.value.trim();
+
+
+                if (!query) {
+                    return;
+                }
+
+
+                /*
+                 * La page produits récupérera
+                 * la recherche depuis l'URL.
+                 */
+
+                window.location.href =
+                    "pages/produits.html?search=" +
+                    encodeURIComponent(query);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PANIER
+       ===================================================== */
+
+    updateCartCount();
+
+
+    function updateCartCount() {
+
+        const cartCount =
+            document.getElementById("cart-count");
+
+
+        if (!cartCount) {
+            return;
+        }
+
+
+        let cart = [];
+
+
+        try {
+
+            cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "primoCart"
+                    )
+                ) || [];
+
+        } catch (error) {
+
+            cart = [];
+
+        }
+
+
+        let total = 0;
+
+
+        if (Array.isArray(cart)) {
+
+            cart.forEach(function (item) {
+
+                if (
+                    item &&
+                    typeof item.quantity === "number"
+                ) {
+
+                    total += item.quantity;
+
+                } else {
+
+                    total++;
+
+                }
+
+            });
+
+        }
+
+
+        cartCount.textContent = total;
+
+    }
+
+
+    /* Mise à jour si le panier change */
+
+    window.addEventListener(
+        "storage",
+        function (event) {
+
+            if (
+                event.key === "primoCart"
+            ) {
+
+                updateCartCount();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ANIMATION AU SCROLL
+       ===================================================== */
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".section, .hero, .card"
+        );
+
+
+    if (
+        "IntersectionObserver" in window &&
+        animatedElements.length
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+
+        animatedElements.forEach(
+            function (element) {
+
+                observer.observe(element);
+
+            }
+        );
+
+    }
+
+});
+/* =========================================================
+   PRIMO-IDÉO — MENU MOBILE
+   Un seul système de navigation
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuButton = document.querySelector(
+        ".mobile-menu-button"
+    );
+
+    const mainNav = document.querySelector(
+        ".main-nav"
+    );
+
+    if (!menuButton || !mainNav) {
+        console.warn(
+            "Primo-Idéo : bouton du menu mobile introuvable."
+        );
+        return;
+    }
+
+    /* -----------------------------------------------------
+       OUVRIR / FERMER LE MENU
+       ----------------------------------------------------- */
+
+    menuButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen =
+            mainNav.classList.toggle("mobile-open");
+
+        menuButton.classList.toggle(
+            "active",
+            isOpen
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Fermer le menu"
+                : "Ouvrir le menu"
+        );
+    });
+
+
+    /* -----------------------------------------------------
+       FERMER APRÈS CLIC SUR UN LIEN
+       ----------------------------------------------------- */
+
+    mainNav
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    if (window.innerWidth <= 700) {
+
+                        mainNav.classList.remove(
+                            "mobile-open"
+                        );
+
+                        menuButton.classList.remove(
+                            "active"
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-label",
+                            "Ouvrir le menu"
+                        );
+                    }
+                }
+            );
+        });
+
+
+    /* -----------------------------------------------------
+       FERMER EN CLIQUANT À L'EXTÉRIEUR
+       ----------------------------------------------------- */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                window.innerWidth <= 700 &&
+                !mainNav.contains(event.target)
+            ) {
+
+                mainNav.classList.remove(
+                    "mobile-open"
+                );
+
+                menuButton.classList.remove(
+                    "active"
+                );
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
+            }
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       TOUCHE ESCAPE
+       ----------------------------------------------------- */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key !== "Escape") {
+                return;
+            }
+
+            mainNav.classList.remove(
+                "mobile-open"
+            );
+
+            menuButton.classList.remove(
+                "active"
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                "Ouvrir le menu"
+            );
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       SI ON REPASSE EN DESKTOP
+       ----------------------------------------------------- */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (window.innerWidth > 700) {
+
+                mainNav.classList.remove(
+                    "mobile-open"
+                );
+
+                menuButton.classList.remove(
+                    "active"
+                );
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
+            }
+        }
+    );
+
+});
+function initMobileMenu() {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mainNav = document.querySelector(".main-nav");
+
+    if (!menuButton || !mainNav) {
+        return;
+    }
+
+    // Évite de créer plusieurs événements
+    if (menuButton.dataset.menuReady === "true") {
+        return;
+    }
+
+    menuButton.dataset.menuReady = "true";
+
+    menuButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = mainNav.classList.toggle("mobile-open");
+
+        menuButton.classList.toggle("active", isOpen);
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Fermer le menu" : "Ouvrir le menu"
+        );
+    });
+
+    // Fermer après avoir cliqué sur un lien
+    mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            if (window.innerWidth <= 700) {
+                closeMobileMenu();
+            }
+        });
+    });
+
+    // Fermer en cliquant à l'extérieur
+    document.addEventListener("click", function (event) {
+        if (window.innerWidth <= 700) {
+            if (!mainNav.contains(event.target)) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Fermer avec Échap
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMobileMenu();
+        }
+    });
+
+    // Réinitialiser en repassant sur ordinateur
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 700) {
+            closeMobileMenu();
+        }
+    });
+
+    function closeMobileMenu() {
+        mainNav.classList.remove("mobile-open");
+        menuButton.classList.remove("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+        );
+    }
+}
